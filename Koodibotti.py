@@ -25,8 +25,6 @@ class Player:
         return f"{self.name}: Money={self.money}, Cards={self.cards}, Points={self.calculate_points()}"
 
 class Game:
-    API_URL = "https://koodipahkina.monad.fi/api/game"
-
     def __init__(self, token):
         self.token = token
         self.headers = {"Authorization": f"Bearer {self.token}"}
@@ -46,7 +44,7 @@ class Game:
     def send_action(self, take_card):
         action = {"takeCard": take_card}
         try:
-            response = requests.post(f"{self.API_URL}/{self.game_id}/action", headers=self.headers, json=action)
+            response = requests.post(f"{API_URL}/{self.game_id}/action", headers=self.headers, json=action)
             if response.status_code == 200:
                 try:
                     self.status = response.json()["status"]
