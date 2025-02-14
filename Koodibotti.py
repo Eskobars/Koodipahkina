@@ -75,7 +75,7 @@ class Game:
             current_card = self.status["card"]
             coins_on_card = self.status["money"]
             players = self.status["players"]
-            current_player = players[0]  # Pelaaja, jonka vuoro on
+            current_player = players[0]
 
             print(f"Current card: {current_card} with {coins_on_card} coins")
             print(f"{current_player['name']}'s turn (Money: {current_player['money']})")
